@@ -44,4 +44,59 @@
 # =============================================================================
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
+def add_student():
+    name = input("Enter the student's name: ")
+    student_id = input("Enter the student's ID: ")
+    scores_ip = input("Enter the student's scores separated by spaces: ")
+    scores = [float(score) for score in scores_ip.split()]
+    student = {
+        'name': name,
+        'id': student_id,
+        'scores': scores
+    }
+    students.append(student)
+    print("Student record added successfully.")
 
+    def display_students():
+        if not students:
+            print("No student records found.")
+            return
+        print("\nStudent Records:")
+        print("-" * 50)
+        for student in students:
+            avverage = sum(student['scores']) / len(student['scores'])
+            print(f"Name: {student['name']}
+            print(f"ID: {student['id']}")
+            print(f"Scores: {student['scores']}")
+            print(f"Average Score: {avverage:.2f}")
+            print("-" * 50)
+
+def search_student():
+    search_id = input("Enter the student's ID to search: ")
+    for student in students:
+        if student['id'] == search_id:
+            print("\nStudent Found:")
+            print(f"Name: {student['name']}")
+            print(f"ID: {student['id']}")
+            print(f"Scores: {student['scores']}")
+            avverage = sum(student['scores']) / len(student['scores'])
+            print(f"Average Score: {avverage:.2f}")
+            return
+    print("Student not found.")
+    while True:
+    print("\n===== Student Record Management System =====")
+    print("1. Add Student Record")
+    print("2. Display All Student Records")
+    print("3. Search Student Record by ID")
+    print("4. Exit")
+    choice = input("Enter your choice (1-4): ")
+    if choice == '1':
+        add_student()
+    elif choice == '2':
+        display_students()
+    elif choice == '3':
+        search_student()    elif choice == '4':
+        print("Program terminated.")
+        break
+        else:
+        print("Invalid choice. Please try again.")
