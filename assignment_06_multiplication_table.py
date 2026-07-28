@@ -54,14 +54,55 @@
 # =============================================================================
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
-score = int(input("Enter student score: "))
-if 80 <= score <= 100:
-    print("Grade: A")
-elif 70 <= score < 79:
-    print("Grade: B")
-elif 60 <= score < 69:
-    print("Grade: C")
-elif 50 <= score < 59:
-    print("Grade: D")
-elif 0 <= score < 49:
-    print("Grade: F")
+
+  def add(a, b):
+    return a + b
+
+def subtract(a, b):
+    return a - b
+
+def multiply(a, b):
+    return a * b
+
+def divide(a, b):
+    if b == 0:
+        raise ValueError("Cannot divide by zero.")
+    return a / b
+
+while True:
+    print("\n===== Calculator Menu =====")
+    print("1. Add")
+    print("2. Subtract")
+    print("3. Multiply")
+    print("4. Divide")
+    print("5. Exit")
+    choice = input("Enter your choice (1-5): ")
+
+    if choice == "5":
+        print("Exiting the calculator.")
+        break
+
+    if choice in ["1", "2", "3", "4"]:
+        try:
+            num1 = float(input("Enter the first number: "))
+            num2 = float(input("Enter the second number: "))
+        except ValueError:
+            print("Invalid input. Please enter valid numbers.")
+            continue
+
+        if choice == "1":
+            result = add(num1, num2)
+        elif choice == "2":
+            result = subtract(num1, num2)
+        elif choice == "3":
+            result = multiply(num1, num2)
+        elif choice == "4":
+            try:
+                result = divide(num1, num2)
+            except ValueError as e:
+                print(e)
+                continue
+
+        print(f"Result: {result}")
+    else:
+        print("Invalid choice. Please enter a number between 1 and 5.")
