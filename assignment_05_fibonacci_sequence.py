@@ -48,19 +48,36 @@
 # =============================================================================
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
-num = int(input("Enter a number: "))
-if num <= 1:
-    print(num, "is not a prime number.")
-else:
-    is_prime = True
+def print_table(number):
+    print(f"\nMultiplication Table for {number}:")
 
-    for i in range(2, int(num ** 0.5) + 1):
-        if num % i == 0:
-            is_prime = False
-            break
+    for i in range(1, 13):
+        print(f"{number} x {i} = {number * i}")
 
-    if is_prime:
-        print(num, "is a prime number.")
-    else:
-            print(num, "is not a prime number.")
 
+def print_tables(n):
+    for number in range(1, n + 1):
+        print_table(number)
+        print("-" * 20)
+
+
+def main():
+    try:
+        n = int(input("Enter a positive integer: "))
+
+        if n <= 0:
+            print("Error: Number must be positive.")
+            return
+
+        print("\nPart A")
+        print_table(n)
+
+        print("\nPart B")
+        print_tables(n)
+
+    except ValueError:
+        print("Error: Please enter a valid integer.")
+
+
+if __name__ == "__main__":
+    main()
