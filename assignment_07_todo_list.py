@@ -78,4 +78,18 @@
 # =============================================================================
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
+def calculate_sum(numbers):
+    return sum(numbers)
+def calculate_mean(numbers):
+    return sum(numbers) / len(numbers) 
+def calculate_max(numbers):
+    return max(numbers)
+def calculate_min(numbers):
+    return min(numbers)
+nums = input("Enter numbers separated by spaces: ")
+numbers = [float(num) for num in nums.split()]
+print("Sum:", calculate_sum(numbers))
+print("Mean:", calculate_mean(numbers))
+print("Max:", calculate_max(numbers))
+print("Min:", calculate_min(numbers))
 
